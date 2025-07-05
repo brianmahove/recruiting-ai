@@ -1,0 +1,125 @@
+.interview-list-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.interview-list-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.interview-cards-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.interview-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    background-color: #e6f7ff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d9edf7;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #0056b3;
+}
+
+/* Reusing badge styles from CandidateDetail.css */
+.interview-status-badge {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.interview-status-badge.status-scheduled { background-color: #007bff; }
+.interview-status-badge.status-rescheduled { background-color: #ffc107; color: #333; }
+.interview-status-badge.status-completed { background-color: #28a745; }
+.interview-status-badge.status-cancelled { background-color: #dc3545; }
+
+.card-body {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.card-body p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.card-body p strong {
+    color: #555;
+}
+
+.card-actions {
+    padding: 15px;
+    border-top: 1px solid #e9ecef;
+    background-color: #f0f0f0;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.edit-btn, .download-ical-btn, .delete-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.edit-btn {
+    background-color: #17a2b8;
+    color: white;
+}
+.edit-btn:hover { background-color: #138496; }
+
+.download-ical-btn {
+    background-color: #6c757d;
+    color: white;
+}
+.download-ical-btn:hover { background-color: #5a6268; }
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+.delete-btn:hover { background-color: #c82333; }
+
+.no-data-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    padding: 30px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+}

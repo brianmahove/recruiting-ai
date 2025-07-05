@@ -1,0 +1,133 @@
+.outreach-campaign-list-container {
+    padding: 25px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.outreach-campaign-list-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.intro-text {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.campaign-actions-header {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.add-campaign-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+.add-campaign-btn:hover { background-color: #218838; }
+
+.campaign-cards-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.campaign-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.campaign-card .card-header {
+    background-color: #e3f2fd; /* Light blue */
+    padding: 15px;
+    border-bottom: 1px solid #bbdefb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.campaign-card .card-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.campaign-status-badge {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.campaign-status-badge.status-draft { background-color: #6c757d; } /* Gray */
+.campaign-status-badge.status-sent { background-color: #28a745; } /* Green */
+.campaign-status-badge.status-scheduled { background-color: #ffc107; color: #333; } /* Yellow */
+.campaign-status-badge.status-failed { background-color: #dc3545; } /* Red */
+
+
+.campaign-card .card-body {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.campaign-card .card-body p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.campaign-card .card-body p strong {
+    color: #555;
+}
+
+.campaign-card .card-actions {
+    padding: 15px;
+    border-top: 1px solid #e9ecef;
+    background-color: #f0f0f0;
+    text-align: right;
+}
+
+.campaign-card .send-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+.campaign-card .send-btn:hover { background-color: #0056b3; }
+
+.no-data-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    padding: 30px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+}

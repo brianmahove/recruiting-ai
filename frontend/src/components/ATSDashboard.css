@@ -1,0 +1,163 @@
+.ats-dashboard-container {
+    padding: 20px;
+    max-width: 100%; /* Allow wider for pipeline view */
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.ats-dashboard-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.ats-dashboard-container .dashboard-intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.ats-actions-header {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* For mobile responsiveness */
+}
+
+.ats-action-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+.ats-action-btn:hover {
+    background-color: #0056b3;
+}
+
+.pipeline-board {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling for many columns */
+    padding-bottom: 15px; /* Space for scrollbar */
+    gap: 20px;
+}
+
+.pipeline-column {
+    flex: 0 0 300px; /* Fixed width columns, but can be responsive */
+    background-color: #f0f2f5; /* Light gray background for columns */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 15px;
+    min-height: 400px; /* Minimum height for columns */
+    display: flex;
+    flex-direction: column;
+}
+
+.column-header {
+    background-color: #e0e4eb;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.column-header h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.column-body {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable vertical scrolling for cards within column */
+    padding-right: 5px; /* Space for scrollbar */
+}
+
+.ats-candidate-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.ats-candidate-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.ats-candidate-card h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #007bff;
+    font-size: 1.1em;
+}
+
+.ats-candidate-card p {
+    margin: 4px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.ats-candidate-card p strong {
+    color: #333;
+}
+
+.ats-candidate-card .card-actions {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.ats-candidate-card .view-details-btn {
+    background-color: #6c757d;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.ats-candidate-card .view-details-btn:hover {
+    background-color: #5a6268;
+}
+
+.no-candidates-in-stage {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile responsiveness for ATS Dashboard */
+@media (max-width: 768px) {
+    .pipeline-board {
+        flex-direction: column; /* Stack columns vertically */
+        overflow-x: hidden; /* No horizontal scrolling */
+    }
+
+    .pipeline-column {
+        flex: 0 0 auto; /* Auto height */
+        width: 100%; /* Full width */
+        margin-bottom: 20px;
+    }
+
+    .ats-actions-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

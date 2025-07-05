@@ -1,0 +1,774 @@
+/* General Body & App Container Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', 'Poppins', 'Montserrat', sans-serif; /* Prioritize modern sans-serif fonts */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F8F9FA; /* Light Gray/Off-White background */
+  color: #34495E; /* Primary text color */
+  line-height: 1.6;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1400px; /* Max width for content on large screens */
+  margin: 0 auto;
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Header & Navigation */
+.App-header {
+  background: linear-gradient(90deg, #4FC3F7 0%, #7C4DFF 100%); /* Teal to Blue-Purple Gradient */
+  padding: 20px 40px;
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between; /* Space out title and nav */
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  border-bottom-left-radius: 15px; /* Rounded corners on bottom */
+  border-bottom-right-radius: 15px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.5rem); /* Responsive font size */
+  font-weight: 700;
+}
+
+.App-header nav {
+  display: flex;
+  gap: 25px; /* Space between nav links */
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px; /* Rounded buttons */
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.nav-link.active { /* For active link state if implemented */
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content Area */
+main {
+  flex-grow: 1; /* Allows main content to take up available space */
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Center content within main */
+  align-items: flex-start; /* Align content to the top */
+  flex-wrap: wrap; /* Allow sections to wrap */
+}
+
+/* Common Card/Container Styles */
+.upload-form,
+.results-container,
+.candidate-list-container,
+.candidate-detail-container,
+.email-sender-container,
+.job-description-list-container { /* Added job-description-list-container */
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Softer, wider shadow */
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Headings within sections */
+h2, h3 {
+  color: #34495E;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input[type="file"],
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea,
+.form-group select { /* Added select */
+  width: calc(100% - 24px); /* Account for padding + border */
+  padding: 12px;
+  border: 1px solid #D1D8DC; /* Light gray border */
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus { /* Added select focus */
+  border-color: #4FC3F7; /* Teal border on focus */
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3); /* Subtle glow on focus */
+  outline: none; /* Remove default outline */
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(45deg, #4FC3F7, #7C4DFF); /* Primary gradient button */
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px; /* Slightly more rounded */
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-3px); /* Lift button on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  background-position: right center; /* Smooth gradient shift */
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Message Banners */
+.error-message {
+  color: #E74C3C; /* Soft Red */
+  background-color: #fcebeb; /* Light red background */
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #E74C3C;
+}
+
+.success-message, .status-message { /* Added status-message */
+  color: #2ECC71; /* Soft Green */
+  background-color: #e6faed; /* Light green background */
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #2ECC71;
+}
+
+
+/* Results Container Specifics */
+.results-container {
+  margin-top: 20px;
+}
+
+.score-card {
+  border: 2px solid #7C4DFF; /* Blue-purple border */
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  background-color: #EBF2FF; /* Light blue background */
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.score-card h3 {
+  color: #7C4DFF; /* Blue-purple heading */
+  margin-top: 0;
+  font-size: 1.8em;
+}
+
+.parsed-resume-details p {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+.parsed-resume-details h4 { /* Style for Experience/Education sub-headings */
+    color: #4FC3F7;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.15em;
+    font-weight: 600;
+}
+.parsed-resume-details ul { /* Style for Experience/Education lists */
+    padding-left: 25px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.parsed-resume-details li {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+}
+
+
+.parsed-resume-details strong {
+  color: #333;
+}
+
+.resume-summary-text {
+  background-color: #F0F0F0; /* Lighter gray */
+  padding: 18px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-style: italic;
+  color: #555;
+  margin-top: 15px;
+}
+
+.view-candidate-link {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 25px;
+  background-color: #2ECC71; /* Soft Green */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-candidate-link:hover {
+  background-color: #28B463;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Candidate List Styles */
+.candidate-list-container {
+  padding: 30px;
+}
+
+.filter-sort-section { /* NEW: Filter/Sort Section */
+    background-color: #E8F0F2; /* Subtle blue-gray */
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid for filters */
+    gap: 20px;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.05); /* Subtle inner shadow */
+}
+.filter-sort-section h3 {
+    grid-column: 1 / -1; /* Span all columns */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #4FC3F7;
+    font-size: 1.3em;
+}
+.filter-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.candidate-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 25px; /* Spacing between cards */
+}
+
+.candidate-item {
+  background-color: #F9F9FA; /* Slightly off-white */
+  border: 1px solid #ECEFF1; /* Very subtle border */
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+}
+
+.candidate-item:hover {
+  transform: translateY(-5px); /* More pronounced lift */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+}
+
+.candidate-item a {
+  text-decoration: none;
+  color: #34495E;
+  display: block;
+}
+
+.candidate-item h3 {
+  color: #007bff; /* Standard blue for candidate names */
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.4em;
+  text-align: left; /* Align candidate names left */
+}
+.candidate-item p {
+    margin: 4px 0;
+    font-size: 0.95em;
+    color: #555;
+    text-align: left; /* Align details left */
+}
+
+/* Candidate Detail Styles */
+.candidate-detail-container {
+  padding: 30px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #7C4DFF; /* Blue-purple for back link */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  transform: translateX(-3px); /* Slide left on hover */
+}
+
+.detail-header { /* NEW: Flex container for status and delete button */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ECEFF1;
+}
+
+.status-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.status-control label {
+    font-weight: 600;
+    color: #555;
+}
+.status-control select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #D1D8DC;
+    background-color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.status-control select:hover {
+    border-color: #B0BEC5;
+}
+.status-control select:focus {
+    border-color: #4FC3F7;
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3);
+    outline: none;
+}
+.status-message {
+    font-size: 0.9em;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    /* Styles will be determined by success-message/error-message */
+}
+
+.detail-section {
+  background-color: #F9F9FA;
+  border: 1px solid #ECEFF1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Very light shadow */
+}
+
+.detail-section h3 {
+  color: #4FC3F7; /* Teal for section headings */
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.detail-section p, .detail-section ul {
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+.detail-section ul {
+    padding-left: 20px;
+}
+.detail-section li {
+    margin-bottom: 5px;
+}
+
+.download-section {
+    text-align: center;
+    padding: 25px;
+}
+.download-resume-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7C4DFF; /* Blue-purple for download */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.download-resume-link:hover {
+    background-color: #6A3BB8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.note {
+    font-size: 0.8em;
+    color: #7F8C8D;
+    margin-top: 10px;
+}
+
+.send-email-button {
+  background-color: #FFD54F; /* Soft Yellow for Email button */
+  color: #34495E; /* Dark text for contrast */
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.send-email-button:hover {
+  background-color: #FFC107; /* Slightly darker yellow on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Email Sender Styles */
+.email-sender-container {
+  background-color: #F0F4F8; /* A light blue-gray background */
+  border: 1px solid #CFD8DC;
+  padding: 25px;
+  margin-top: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.email-form .form-group label {
+  font-weight: normal; /* Labels in email form can be less bold */
+}
+
+.email-warning {
+  font-size: 0.85em;
+  color: #7F8C8D; /* Secondary text color */
+  margin-top: 20px;
+  border-top: 1px dashed #B0BEC5; /* Dashed separator */
+  padding-top: 15px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* Delete Buttons (specific styles for small buttons) */
+.delete-button, .delete-button-small {
+    background-color: #E74C3C; /* Soft red for delete */
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-top: 0; /* Override default button margin */
+}
+.delete-button:hover, .delete-button-small:hover {
+    background-color: #C0392B;
+    transform: translateY(-1px); /* Less pronounced lift for small buttons */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.delete-button-small { /* For smaller delete buttons in lists */
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+/* Job Description List Styles */
+.job-description-list-container {
+    padding: 30px;
+}
+.job-description-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+.jd-item {
+    background-color: #F9F9FA;
+    border: 1px solid #ECEFF1;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push actions to bottom */
+}
+.jd-item h3 {
+    color: #4FC3F7;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    text-align: left;
+}
+.jd-item p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+}
+.jd-text-preview {
+    font-style: italic;
+    color: #7F8C8D;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+.jd-actions {
+    margin-top: auto; /* Push actions to the bottom */
+    text-align: right; /* Align delete button to the right */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App-header {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .App-header nav {
+    margin-top: 20px;
+    gap: 15px;
+  }
+
+  .nav-link {
+    padding: 8px 15px;
+    font-size: 1em;
+  }
+
+  .upload-form,
+  .results-container,
+  .candidate-list-container,
+  .candidate-detail-container,
+  .email-sender-container,
+  .job-description-list-container {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .candidate-list, .job-description-list {
+    grid-template-columns: 1fr; /* Stack cards on mobile */
+  }
+
+  .candidate-item h3 {
+    font-size: 1.2em;
+  }
+
+  .filter-sort-section {
+    grid-template-columns: 1fr; /* Stack filters on mobile */
+    gap: 15px;
+  }
+  .filter-sort-section h3 {
+      text-align: center;
+  }
+  .detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+  }
+  .delete-button {
+      width: 100%; /* Full width delete button on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  .nav-link {
+    flex-grow: 1; /* Make nav links take full width in a row if wrapped */
+    text-align: center;
+  }
+
+  .upload-form,
+  .results-container,
+  .candidate-list-container,
+  .candidate-detail-container,
+  .email-sender-container,
+  .job-description-list-container {
+    border-radius: 10px; /* Slightly less rounded for very small screens */
+  }
+}
+
+.candidate-list-container {
+    padding: 20px;
+}
+
+.filters-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    align-items: flex-end; /* Align items at the bottom */
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    min-width: 150px; /* Ensure inputs have a decent width */
+}
+
+.candidate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.candidate-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push button to bottom */
+}
+
+.candidate-card h3 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.candidate-card h3 a {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.candidate-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.candidate-card p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.candidate-card p strong {
+    color: #000;
+}
+
+.view-details-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 15px;
+    align-self: flex-start; /* Align button to start within flex column */
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+}
+
+.status-new-candidate { background-color: #6c757d; } /* Gray */
+.status-under-review { background-color: #007bff; } /* Blue */
+.status-interview-scheduled { background-color: #ffc107; color: #333; } /* Yellow */
+.status-offered { background-color: #28a745; } /* Green */
+.status-hired { background-color: #17a2b8; } /* Teal */
+.status-rejected { background-color: #dc3545; } /* Red */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group input,
+    .filter-group select {
+        width: 100%;
+        min-width: unset;
+    }
+}

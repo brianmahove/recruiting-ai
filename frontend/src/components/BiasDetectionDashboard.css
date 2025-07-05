@@ -1,0 +1,115 @@
+.bias-detection-dashboard-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.bias-detection-dashboard-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.dashboard-intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.bias-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.bias-card {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.bias-card h3 {
+    color: #8A2BE2; /* A shade of blue-violet */
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    border-bottom: 1px dashed #d6b3ee;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.bias-card .recharts-responsive-container {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.disparity-summary {
+    background-color: #f0f8ff; /* AliceBlue */
+    border-left: 4px solid #8A2BE2;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.disparity-summary h4 {
+    margin-top: 0;
+    color: #6A5ACD; /* SlateBlue */
+    margin-bottom: 10px;
+}
+
+.disparity-summary p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #444;
+}
+
+.disparity-summary p strong {
+    color: #333;
+}
+
+.bias-mitigation-note {
+    background-color: #fffacd; /* LemonChiffon */
+    border: 1px solid #ffd700; /* Gold */
+    border-left: 5px solid #ffbf00; /* Amber */
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.bias-mitigation-note h4 {
+    color: #daa520; /* Goldenrod */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.bias-mitigation-note p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.bias-mitigation-note ul {
+    list-style: disc;
+    padding-left: 25px;
+}
+
+.bias-mitigation-note li {
+    margin-bottom: 8px;
+    color: #555;
+}

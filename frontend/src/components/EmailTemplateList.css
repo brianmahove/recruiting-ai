@@ -1,0 +1,127 @@
+.email-template-list-container {
+    padding: 25px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.email-template-list-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.intro-text {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.template-actions-header {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.add-template-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+.add-template-btn:hover { background-color: #218838; }
+
+.template-cards-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.template-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.template-card .card-header {
+    background-color: #e0f7fa; /* Light cyan */
+    padding: 15px;
+    border-bottom: 1px solid #b2ebf2;
+}
+
+.template-card .card-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.template-card .card-body {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.template-card .card-body p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.template-card .template-body-preview {
+    font-style: italic;
+    color: #666;
+}
+
+.template-card .card-actions {
+    padding: 15px;
+    border-top: 1px solid #e9ecef;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.template-card .edit-btn, .template-card .delete-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.template-card .edit-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+.template-card .edit-btn:hover { background-color: #e0a800; }
+
+.template-card .delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+.template-card .delete-btn:hover { background-color: #c82333; }
+
+.no-data-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    padding: 30px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+}
