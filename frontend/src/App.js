@@ -1,36 +1,9 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import JobDescriptionList from './components/JobDescriptionList';
-import JobDescriptionForm from './components/JobDescriptionForm';
-import CandidateList from './components/CandidateList';
-import CandidateUpload from './components/CandidateUpload';
-
-import CandidateDetail from './components/CandidateDetail';
-import JobDescriptionDetail from './components/JobDescriptionDetail';
-import AIScreeningSetup from './components/AIScreeningSetup';
-import AIScreeningInterview from './components/AIScreeningInterview';
-import InterviewScheduler from './components/InterviewScheduler';
-import InterviewList from './components/InterviewList';
-import AssessmentList from './components/AssessmentList';
-import AssessmentForm from './components/AssessmentForm';
-import AssessmentDetail from './components/AssessmentDetail';
-import CandidateAssessmentTest from './components/CandidateAssessmentTest';
-import CandidateAssessmentResultView from './components/CandidateAssessmentResultView';
-import VideoInterviewRecorder from './components/VideoInterviewRecorder';
-import VideoInterviewDetail from './components/VideoInterviewDetail';
-import AnalyticsDashboard from './components/AnalyticsDashboard';
-import BiasDetectionDashboard from './components/BiasDetectionDashboard';
-import ATSDashboard from './components/ATSDashboard'; // Existing, but now main ATS view
-import CandidateBulkUpload from './components/CandidateBulkUpload'; // NEW
-import PipelineStageManagement from './components/PipelineStageManagement'; // NEW
-import EmailTemplateList from './components/EmailTemplateList'; // NEW
-import EmailTemplateForm from './components/EmailTemplateForm'; // NEW
-import OutreachCampaignList from './components/OutreachCampaignList'; // NEW
-import OutreachCampaignForm from './components/OutreachCampaignForm'; // NEW
-
-
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { uploadResume } from './api';
+import CandidateList from './CandidateList';
+import CandidateDetail from './CandidateDetail';
+import JobDescriptionList from './JobDescriptionList'; // NEW import
 import './App.css';
 
 function App() {
@@ -41,15 +14,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [fileInputKey, setFileInputKey] = useState(0); // For resetting file input
-   const uploadResume = async (fileData) => { // Declare the function here
-        // Your resume upload logic
-        console.log("Attempting to upload:", fileData);
-        // Example:
-        // const formData = new FormData();
-        // formData.append('resume', fileData);
-        // await fetch('/api/upload', { method: 'POST', body: formData });
-    };
-    
+
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -185,86 +150,7 @@ function App() {
             <Route path="/candidates" element={<CandidateList />} />
             <Route path="/candidate/:id" element={<CandidateDetail />} />
             <Route path="/job-descriptions" element={<JobDescriptionList />} /> {/* NEW ROUTE */}
-            <Route path="/" element={<JobDescriptionList />} />
-            <Route path="/job-descriptions/new" element={<JobDescriptionForm />} />
-            <Route path="/job-descriptions/:id" element={<JobDescriptionDetail />} /> {/* NEW */}
-            <Route path="/job-descriptions/:id/edit" element={<JobDescriptionForm />} /> {/* For editing */}
-            
-            <Route path="/candidates/upload" element={<CandidateUpload />} />
-            <Route path="/candidates/:id" element={<CandidateDetail />} /> {/* NEW */}
-           
-            {/* AI Screening Routes */}
-                        <Route path="/ai-screening-setup/:jobId" element={<AIScreeningSetup />} />
-                        <Route path="/ai-screening-interview/:candidateId/:jobId" element={<AIScreeningInterview />} />
-                        {/* NEW Interview Scheduling Routes */}
-                        <Route path="/schedule-interview/:candidateId/:jobId" element={<InterviewScheduler />} />
-                        <Route path="/interviews" element={<InterviewList />} /> {/* List all scheduled interviews */}
-                        <Route path="/interviews/:id/edit" element={<InterviewScheduler />} /> {/* Edit existing interview */}
-                    {/* NEW Skill Assessment Routes */}
-                        <Route path="/assessments" element={<AssessmentList />} />
-                        <Route path="/assessments/new" element={<AssessmentForm />} />
-                        <Route path="/assessments/:id" element={<AssessmentDetail />} /> {/* To view/manage questions */}
-                        <Route path="/assessments/:id/edit" element={<AssessmentForm />} />
-                        <Route path="/candidates/:candidateId/take-assessment/:assessmentId" element={<CandidateAssessmentTest />} />
-                        <Route path="/assessment-results/:resultId" element={<CandidateAssessmentResultView />} />
-                    <Route path="/analytics" element={<AnalyticsDashboard />} />
-                        <Route path="/bias-detection" element={<BiasDetectionDashboard />} /> {/* NEW */}
-                    {/* ... (existing routes) ... */}
-                        <Route path="/ats" element={<ATSDashboard />} /> {/* NEW */}
-                     {/* ... (existing routes) ... */}
-                        <Route path="/video-interview/record/:candidateId/:jobDescriptionId" element={<VideoInterviewRecorder />} /> {/* NEW */}
-                        <Route path="/video-interview/details/:interviewId" element={<VideoInterviewDetail />} /> {/* NEW */}
-                    
-
-
-                    <Route path="/" element={<JobDescriptionList />} />
-                        <Route path="/job-descriptions/new" element={<JobDescriptionForm />} />
-                        <Route path="/job-descriptions/:id" element={<JobDescriptionDetail />} />
-                        <Route path="/job-descriptions/:id/edit" element={<JobDescriptionForm />} />
-
-                        {/* Candidate Management */}
-                        <Route path="/candidates" element={<CandidateList />} />
-                        <Route path="/candidates/upload" element={<CandidateUpload />} /> {/* Keep for single, or remove if only bulk */}
-                        <Route path="/candidates/bulk-upload" element={<CandidateBulkUpload />} /> {/* NEW */}
-                        <Route path="/candidates/:id" element={<CandidateDetail />} />
-
-                        {/* AI Screening */}
-                        <Route path="/ai-screening-setup/:jobId" element={<AIScreeningSetup />} />
-                        <Route path="/ai-screening-interview/:candidateId/:jobId" element={<AIScreeningInterview />} />
-
-                        {/* Interview Scheduling */}
-                        <Route path="/schedule-interview/:candidateId/:jobId" element={<InterviewScheduler />} />
-                        <Route path="/interviews" element={<InterviewList />} />
-                        <Route path="/interviews/:id/edit" element={<InterviewScheduler />} />
-
-                        {/* Skill Assessments */}
-                        <Route path="/assessments" element={<AssessmentList />} />
-                        <Route path="/assessments/new" element={<AssessmentForm />} />
-                        <Route path="/assessments/:id" element={<AssessmentDetail />} />
-                        <Route path="/assessments/:id/edit" element={<AssessmentForm />} />
-                        <Route path="/candidates/:candidateId/take-assessment/:assessmentId" element={<CandidateAssessmentTest />} />
-                        <Route path="/assessment-results/:resultId" element={<CandidateAssessmentResultView />} />
-
-                        {/* Video Interviewing */}
-                        <Route path="/video-interview/record/:candidateId/:jobDescriptionId" element={<VideoInterviewRecorder />} />
-                        <Route path="/video-interview/details/:interviewId" element={<VideoInterviewDetail />} />
-
-                        {/* Analytics & Bias Detection */}
-                        <Route path="/analytics" element={<AnalyticsDashboard />} />
-                        <Route path="/bias-detection" element={<BiasDetectionDashboard />} />
-
-                        {/* ATS & Collaboration */}
-                        <Route path="/ats" element={<ATSDashboard />} /> {/* Main ATS Dashboard */}
-                        <Route path="/pipeline-stages" element={<PipelineStageManagement />} /> {/* NEW */}
-
-                        {/* Outreach Campaigns */}
-                        <Route path="/email-templates" element={<EmailTemplateList />} /> {/* NEW */}
-                        <Route path="/email-templates/new" element={<EmailTemplateForm />} /> {/* NEW */}
-                        <Route path="/email-templates/:id/edit" element={<EmailTemplateForm />} /> {/* NEW */}
-                        <Route path="/outreach-campaigns" element={<OutreachCampaignList />} /> {/* NEW */}
-                        <Route path="/outreach-campaigns/new" element={<OutreachCampaignForm />} /> {/* NEW */}
-                    
-            </Routes>
+          </Routes>
         </main>
       </div>
     </Router>
