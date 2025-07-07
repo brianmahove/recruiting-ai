@@ -12,7 +12,7 @@ This full-stack web application uses **React** on the frontend and **Flask (Pyth
 
 AI automatically parses resumes and job descriptions, then generates a **match score** to help recruiters quickly identify the most suitable candidates.
 
-![Resume Screening](screenshots/resume-screening.png)
+![Resume Screening](screenshots/resume-screening.jpeg)
 
 ---
 
@@ -20,7 +20,7 @@ AI automatically parses resumes and job descriptions, then generates a **match s
 
 Track each candidate’s progress from application to hire. View detailed candidate profiles, update status, and manage everything in one clean dashboard.
 
-![Candidate Pipeline](screenshots/candidate-pipeline.png)
+![Candidate Pipeline](screenshots/candidate-pipeline.jpeg)
 
 ---
 
@@ -28,7 +28,7 @@ Track each candidate’s progress from application to hire. View detailed candid
 
 Store and manage all your job descriptions in one place. Easily reuse or edit job templates and sync them with open positions.
 
-![Job Description Management](screenshots/job-description.png)
+![Job Description Management](screenshots/job-description.jpeg)
 
 ---
 
@@ -36,7 +36,7 @@ Store and manage all your job descriptions in one place. Easily reuse or edit jo
 
 Eliminate back-and-forth emails! Recruiters can schedule interviews directly through the platform based on calendar availability.
 
-![Interview Scheduling](screenshots/interview-scheduling.png)
+![Interview Scheduling](screenshots/interview-scheduling.jpeg)
 
 ---
 
@@ -44,7 +44,7 @@ Eliminate back-and-forth emails! Recruiters can schedule interviews directly thr
 
 Our AI assistant conducts first-round screenings with predefined questions, saving recruiters time and ensuring **unbiased, consistent assessments**.
 
-![AI Interview Bot](screenshots/ai-interview.png)
+![AI Interview Bot](screenshots/ai-interview.jpeg)
 
 ---
 
