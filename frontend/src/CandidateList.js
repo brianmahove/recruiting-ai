@@ -1,148 +1,187 @@
-import React, { useEffect, useState } from 'react';
-import { getCandidates, getJobDescriptions } from './api'; // Import getJobDescriptions
-import { Link } from 'react-router-dom';
+// src/CandidateList.js
+import React, { useState, useEffect } from 'react';
+import { getCandidates, downloadResume, deleteCandidate, getJobDescriptions } from './api';
+import { Link, useNavigate } from 'react-router-dom';
 
 function CandidateList() {
-  const [candidates, setCandidates] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [jobDescriptions, setJobDescriptions] = useState([]); // State for JDs
-  const [filters, setFilters] = useState({
-    job_description_id: '',
-    status: '',
-    min_score: '',
-    search_term: '',
-    sort_by: 'created_at',
-    sort_order: 'desc'
-  });
+    const [candidates, setCandidates] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filterStatus, setFilterStatus] = useState('');
 
-  const candidateStatuses = ['New Candidate', 'Reviewed', 'Interviewing', 'Rejected', 'Hired'];
+    // State for interview modal
+    const [showInterviewModal, setShowInterviewModal] = useState(false);
+    const [selectedCandidateForInterview, setSelectedCandidateForInterview] = useState(null);
+    const [jobDescriptions, setJobDescriptions] = useState([]);
+    const [selectedJobId, setSelectedJobId] = useState('');
 
-  const fetchAllCandidates = async (currentFilters) => {
-    try {
-      setLoading(true);
-      const data = await getCandidates(currentFilters);
-      setCandidates(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    const loadData = async () => {
-      await fetchAllCandidates(filters);
-      try {
-        const jds = await getJobDescriptions();
-        setJobDescriptions(jds);
-      } catch (err) {
-        console.error("Failed to fetch job descriptions:", err);
-        // Don't block candidate list if JDs fail
-      }
+    const fetchCandidates = async () => {
+        setIsLoading(true);
+        setError(null);
+        try {
+            const params = {};
+            if (searchTerm) params.search = searchTerm;
+            if (filterStatus) params.status = filterStatus;
+            const data = await getCandidates(params);
+            setCandidates(data);
+        } catch (err) {
+            console.error("Failed to fetch candidates:", err);
+            setError(err.message || "Failed to load candidates.");
+        } finally {
+            setIsLoading(false);
+        }
     };
-    loadData();
-  }, [filters]); // Re-fetch when filters change
 
-  const handleFilterChange = (e) => {
-    const { name, value } = e.target;
-    setFilters(prev => ({ ...prev, [name]: value }));
-  };
+    // Fetch Job Descriptions for the interview modal
+    const fetchJobDescriptions = async () => {
+        try {
+            const data = await getJobDescriptions();
+            setJobDescriptions(data);
+        } catch (err) {
+            console.error("Failed to fetch job descriptions:", err);
+            // Optionally set an error here, but don't block candidate list
+        }
+    };
 
-  if (loading && candidates.length === 0) return <p>Loading candidates...</p>; // Only show loading initially
-  if (error) return <p className="error-message">Error: {error}</p>;
 
-  return (
-    <div className="candidate-list-container">
-      <h2>All Candidates</h2>
+    useEffect(() => {
+        fetchCandidates();
+        fetchJobDescriptions(); // Fetch job descriptions when component mounts
+    }, [searchTerm, filterStatus]); // Re-fetch on search/filter changes
 
-      <div className="filter-sort-section">
-        <h3>Filter & Sort</h3>
-        <div className="filter-group">
-          <label htmlFor="job-description-filter">Job Description:</label>
-          <select id="job-description-filter" name="job_description_id" value={filters.job_description_id} onChange={handleFilterChange}>
-            <option value="">All Job Descriptions</option>
-            {jobDescriptions.map(jd => (
-              <option key={jd.id} value={jd.id}>{jd.title}</option>
-            ))}
-          </select>
+    const handleDelete = async (id) => {
+        if (window.confirm("Are you sure you want to delete this candidate? This action cannot be undone.")) {
+            setIsLoading(true);
+            try {
+                await deleteCandidate(id);
+                fetchCandidates(); // Re-fetch the list after deletion
+            } catch (err) {
+                console.error("Failed to delete candidate:", err);
+                setError(err.message || "Failed to delete candidate.");
+            } finally {
+                setIsLoading(false);
+            }
+        }
+    };
+
+    const handleStartInterviewClick = (candidate) => {
+        setSelectedCandidateForInterview(candidate);
+        setShowInterviewModal(true);
+        setSelectedJobId(''); // Reset selected job when opening modal
+    };
+
+    const handleInterviewSubmit = () => {
+        if (selectedCandidateForInterview && selectedJobId) {
+            navigate(`/interview/${selectedCandidateForInterview.id}/${selectedJobId}`);
+            setShowInterviewModal(false);
+            setSelectedCandidateForInterview(null);
+            setSelectedJobId('');
+        } else {
+            setError("Please select a job description to start the interview.");
+        }
+    };
+
+    // NEW: Handle row click to view details
+    const handleRowClick = (candidateId) => {
+        navigate(`/candidate/${candidateId}`);
+    };
+
+    if (isLoading) return <div className="loading-message">Loading candidates...</div>;
+    if (error) return <div className="error-message">Error: {error}</div>;
+    if (candidates.length === 0) return <div className="no-data-message">No candidates found. Upload a resume to get started!</div>;
+
+    return (
+        <div className="candidate-list-container">
+            <h2>All Candidates</h2>
+
+            <div className="filters-search-bar">
+                <input
+                    type="text"
+                    placeholder="Search by name, email, skills..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="search-input"
+                />
+                <select
+                    value={filterStatus}
+                    onChange={(e) => setFilterStatus(e.target.value)}
+                    className="status-filter"
+                >
+                    <option value="">All Statuses</option>
+                    <option value="New">New</option>
+                    <option value="Reviewed">Reviewed</option>
+                    <option value="Shortlisted">Shortlisted</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Interviewed">Interviewed</option>
+                </select>
+                <button onClick={fetchCandidates} className="refresh-button">Refresh List</button>
+            </div>
+
+            <table className="candidate-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Job Title</th>
+                        <th>Match Score</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {candidates.map((candidate) => (
+                        <tr key={candidate.id} onClick={() => handleRowClick(candidate.id)} style={{ cursor: 'pointer' }}>
+                            <td>{candidate.id}</td>
+                            <td>{candidate.name || 'N/A'}</td>
+                            <td>{candidate.email || 'N/A'}</td>
+                            <td>{candidate.phone || 'N/A'}</td>
+                            <td>{candidate.job_title || 'N/A'}</td>
+                            <td>{candidate.match_score !== null ? `${candidate.match_score}%` : 'N/A'}</td>
+                            <td>{candidate.status}</td>
+                            <td className="candidate-actions" onClick={(e) => e.stopPropagation()}> {/* Stop propagation to prevent row click from firing */}
+                                <Link to={`/candidate/${candidate.id}`} className="action-button view-button">View</Link>
+                                <button onClick={() => downloadResume(candidate.resume_filename)} className="action-button download-button">Resume</button>
+                                <button onClick={() => handleStartInterviewClick(candidate)} className="action-button interview-button">Interview</button>
+                                <button onClick={() => handleDelete(candidate.id)} className="action-button delete-button">Delete</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            {/* Interview Modal */}
+            {showInterviewModal && (
+                <div className="modal-backdrop">
+                    <div className="modal-content">
+                        <h3>Start Interview for {selectedCandidateForInterview?.name}</h3>
+                        <p>Select a Job Description for this interview:</p>
+                        <select
+                            value={selectedJobId}
+                            onChange={(e) => setSelectedJobId(e.target.value)}
+                            className="job-description-select"
+                        >
+                            <option value="">-- Select Job Description --</option>
+                            {jobDescriptions.map(jd => (
+                                <option key={jd.id} value={jd.id}>
+                                    {jd.job_title} (ID: {jd.id})
+                                </option>
+                            ))}
+                        </select>
+                        <div className="modal-actions">
+                            <button onClick={handleInterviewSubmit} disabled={!selectedJobId} className="action-button">Start Interview</button>
+                            <button onClick={() => setShowInterviewModal(false)} className="action-button cancel-button">Cancel</button>
+                        </div>
+                        {error && <div className="error-message">{error}</div>}
+                    </div>
+                </div>
+            )}
         </div>
-
-        <div className="filter-group">
-          <label htmlFor="status-filter">Status:</label>
-          <select id="status-filter" name="status" value={filters.status} onChange={handleFilterChange}>
-            <option value="">All Statuses</option>
-            {candidateStatuses.map(status => (
-              <option key={status} value={status}>{status}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="filter-group">
-          <label htmlFor="min-score-filter">Min Match Score (%):</label>
-          <input
-            type="number"
-            id="min-score-filter"
-            name="min_score"
-            value={filters.min_score}
-            onChange={handleFilterChange}
-            min="0"
-            max="100"
-            placeholder="e.g., 70"
-          />
-        </div>
-
-        <div className="filter-group">
-          <label htmlFor="search-term-filter">Search (Name/Email):</label>
-          <input
-            type="text"
-            id="search-term-filter"
-            name="search_term"
-            value={filters.search_term}
-            onChange={handleFilterChange}
-            placeholder="e.g., John Doe"
-          />
-        </div>
-
-        <div className="filter-group">
-          <label htmlFor="sort-by-filter">Sort By:</label>
-          <select id="sort-by-filter" name="sort_by" value={filters.sort_by} onChange={handleFilterChange}>
-            <option value="created_at">Date Added</option>
-            <option value="match_score">Match Score</option>
-            <option value="name">Name</option>
-          </select>
-        </div>
-
-        <div className="filter-group">
-          <label htmlFor="sort-order-filter">Order:</label>
-          <select id="sort-order-filter" name="sort_order" value={filters.sort_order} onChange={handleFilterChange}>
-            <option value="desc">Descending</option>
-            <option value="asc">Ascending</option>
-          </select>
-        </div>
-      </div>
-
-      {loading && candidates.length > 0 && <p>Refreshing candidates...</p>} {/* Show refreshing when filters apply */}
-
-      {candidates.length === 0 && !loading ? (
-        <p>No candidates found matching your criteria. Try adjusting filters or upload a resume using the "Resume Screener" tab!</p>
-      ) : (
-        <ul className="candidate-list">
-          {candidates.map((candidate) => (
-            <li key={candidate.id} className="candidate-item">
-              <Link to={`/candidate/${candidate.id}`}>
-                <h3>{candidate.name || 'N/A'}</h3>
-                <p>Email: {candidate.email || 'N/A'}</p>
-                <p>Status: <strong>{candidate.status}</strong></p> {/* Display status */}
-                <p>Match Score: {candidate.match_score || 'N/A'}%</p>
-                <p>Job Title: {candidate.job_description?.title || 'N/A'}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
+    );
 }
 
 export default CandidateList;

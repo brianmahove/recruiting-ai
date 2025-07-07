@@ -1,80 +1,80 @@
 /* General Body & App Container Styles */
 body {
-  margin: 0;
-  font-family: 'Inter', 'Poppins', 'Montserrat', sans-serif; /* Prioritize modern sans-serif fonts */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #F8F9FA; /* Light Gray/Off-White background */
-  color: #34495E; /* Primary text color */
-  line-height: 1.6;
+    margin: 0;
+    font-family: 'Inter', 'Poppins', 'Montserrat', sans-serif; /* Prioritize modern sans-serif fonts */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F8F9FA; /* Light Gray/Off-White background */
+    color: #34495E; /* Primary text color */
+    line-height: 1.6;
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  max-width: 1400px; /* Max width for content on large screens */
-  margin: 0 auto;
-  box-sizing: border-box; /* Include padding in element's total width and height */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1400px; /* Max width for content on large screens */
+    margin: 0 auto;
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 /* Header & Navigation */
 .App-header {
-  background: linear-gradient(90deg, #4FC3F7 0%, #7C4DFF 100%); /* Teal to Blue-Purple Gradient */
-  padding: 20px 40px;
-  color: #FFFFFF;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Soft shadow */
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between; /* Space out title and nav */
-  align-items: center;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  border-bottom-left-radius: 15px; /* Rounded corners on bottom */
-  border-bottom-right-radius: 15px;
+    background: linear-gradient(90deg, #4FC3F7 0%, #7C4DFF 100%); /* Teal to Blue-Purple Gradient */
+    padding: 20px 40px;
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between; /* Space out title and nav */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    border-bottom-left-radius: 15px; /* Rounded corners on bottom */
+    border-bottom-right-radius: 15px;
 }
 
-.App-header h1 {
-  margin: 0;
-  font-size: clamp(1.5rem, 3vw, 2.5rem); /* Responsive font size */
-  font-weight: 700;
+.App-header h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.5rem); /* Responsive font size */
+    font-weight: 700;
 }
 
 .App-header nav {
-  display: flex;
-  gap: 25px; /* Space between nav links */
-  flex-wrap: wrap;
+    display: flex;
+    gap: 20px; /* Space between nav links */
+    flex-wrap: wrap;
 }
 
 .nav-link {
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 8px; /* Rounded buttons */
-  background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-weight: 600;
-  font-size: 1.1em;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px; /* Rounded buttons */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    font-size: 1.1em;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px); /* Subtle lift on hover */
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px); /* Subtle lift on hover */
 }
 
 .nav-link.active { /* For active link state if implemented */
-  background-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Main Content Area */
 main {
-  flex-grow: 1; /* Allows main content to take up available space */
-  padding: 20px;
-  display: flex;
-  justify-content: center; /* Center content within main */
-  align-items: flex-start; /* Align content to the top */
-  flex-wrap: wrap; /* Allow sections to wrap */
+    flex-grow: 1; /* Allows main content to take up available space */
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Center content within main */
+    align-items: flex-start; /* Align content to the top */
+    flex-wrap: wrap; /* Allow sections to wrap */
 }
 
 /* Common Card/Container Styles */
@@ -84,35 +84,35 @@ main {
 .candidate-detail-container,
 .email-sender-container,
 .job-description-list-container { /* Added job-description-list-container */
-  background-color: #FFFFFF;
-  padding: 30px;
-  border-radius: 15px; /* More rounded corners */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Softer, wider shadow */
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 30px;
-  text-align: left;
-  box-sizing: border-box;
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Softer, wider shadow */
+    width: 100%;
+    max-width: 800px; /* Keeping user's preferred max-width for containers */
+    margin-bottom: 30px;
+    text-align: left;
+    box-sizing: border-box;
 }
 
 /* Headings within sections */
 h2, h3 {
-  color: #34495E;
-  text-align: center;
-  margin-bottom: 25px;
-  font-weight: 600;
+    color: #34495E;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
 /* Form Group Styles */
 .form-group {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #555;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
 }
 
 .form-group input[type="file"],
@@ -120,104 +120,103 @@ h2, h3 {
 .form-group input[type="email"],
 .form-group textarea,
 .form-group select { /* Added select */
-  width: calc(100% - 24px); /* Account for padding + border */
-  padding: 12px;
-  border: 1px solid #D1D8DC; /* Light gray border */
-  border-radius: 8px;
-  font-size: 16px;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: calc(100% - 24px); /* Account for padding + border */
+    padding: 12px;
+    border: 1px solid #D1D8DC; /* Light gray border */
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus { /* Added select focus */
-  border-color: #4FC3F7; /* Teal border on focus */
-  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3); /* Subtle glow on focus */
-  outline: none; /* Remove default outline */
+    border-color: #4FC3F7; /* Teal border on focus */
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3); /* Subtle glow on focus */
+    outline: none; /* Remove default outline */
 }
 
 .form-group textarea {
-  resize: vertical;
-  min-height: 120px;
+    resize: vertical;
+    min-height: 120px;
 }
 
 /* Buttons */
 button {
-  background: linear-gradient(45deg, #4FC3F7, #7C4DFF); /* Primary gradient button */
-  color: white;
-  padding: 14px 30px;
-  border: none;
-  border-radius: 10px; /* Slightly more rounded */
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 15px;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #4FC3F7, #7C4DFF); /* Primary gradient button */
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 10px; /* Slightly more rounded */
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 button:hover:not(:disabled) {
-  transform: translateY(-3px); /* Lift button on hover */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
-  background-position: right center; /* Smooth gradient shift */
+    transform: translateY(-3px); /* Lift button on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    background-position: right center; /* Smooth gradient shift */
 }
 
 button:disabled {
-  background: #cccccc;
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
 /* Message Banners */
 .error-message {
-  color: #E74C3C; /* Soft Red */
-  background-color: #fcebeb; /* Light red background */
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-  font-weight: 600;
-  text-align: center;
-  border: 1px solid #E74C3C;
+    color: #E74C3C; /* Soft Red */
+    background-color: #fcebeb; /* Light red background */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #E74C3C;
 }
 
 .success-message, .status-message { /* Added status-message */
-  color: #2ECC71; /* Soft Green */
-  background-color: #e6faed; /* Light green background */
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-  font-weight: 600;
-  text-align: center;
-  border: 1px solid #2ECC71;
+    color: #2ECC71; /* Soft Green */
+    background-color: #e6faed; /* Light green background */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #2ECC71;
 }
-
 
 /* Results Container Specifics */
 .results-container {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .score-card {
-  border: 2px solid #7C4DFF; /* Blue-purple border */
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  background-color: #EBF2FF; /* Light blue background */
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 2px solid #7C4DFF; /* Blue-purple border */
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    background-color: #EBF2FF; /* Light blue background */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .score-card h3 {
-  color: #7C4DFF; /* Blue-purple heading */
-  margin-top: 0;
-  font-size: 1.8em;
+    color: #7C4DFF; /* Blue-purple heading */
+    margin-top: 0;
+    font-size: 1.8em;
 }
 
 .parsed-resume-details p {
-  margin-bottom: 8px;
-  line-height: 1.6;
+    margin-bottom: 8px;
+    line-height: 1.6;
 }
 .parsed-resume-details h4 { /* Style for Experience/Education sub-headings */
     color: #4FC3F7;
@@ -236,137 +235,270 @@ button:disabled {
     font-size: 0.95em;
 }
 
-
 .parsed-resume-details strong {
-  color: #333;
+    color: #333;
 }
 
 .resume-summary-text {
-  background-color: #F0F0F0; /* Lighter gray */
-  padding: 18px;
-  border-radius: 10px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-style: italic;
-  color: #555;
-  margin-top: 15px;
+    background-color: #F0F0F0; /* Lighter gray */
+    padding: 18px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-style: italic;
+    color: #555;
+    margin-top: 15px;
 }
 
 .view-candidate-link {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 25px;
-  background-color: #2ECC71; /* Soft Green */
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #2ECC71; /* Soft Green */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .view-candidate-link:hover {
-  background-color: #28B463;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #28B463;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Candidate List Styles */
+/* Candidate List Styles (updated for table layout) */
 .candidate-list-container {
-  padding: 30px;
+    padding: 30px;
+    /* Keeping max-width: 800px from common container styles */
 }
 
-.filter-sort-section { /* NEW: Filter/Sort Section */
-    background-color: #E8F0F2; /* Subtle blue-gray */
+/* NEW: Filters and Search Bar Section */
+.filters-search-bar {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 15px; /* Space between items */
+    margin-bottom: 25px; /* More space below filters */
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center; /* Vertically align items */
+    background-color: #E8F0F2; /* Subtle blue-gray, similar to your filter-sort-section */
     padding: 20px;
     border-radius: 12px;
-    margin-bottom: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid for filters */
-    gap: 20px;
     box-shadow: inset 0 1px 5px rgba(0,0,0,0.05); /* Subtle inner shadow */
 }
-.filter-sort-section h3 {
-    grid-column: 1 / -1; /* Span all columns */
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: left;
-    color: #4FC3F7;
-    font-size: 1.3em;
-}
-.filter-group label {
+
+.filters-search-bar label { /* If you add labels for search/filter */
     font-weight: 500;
-    margin-bottom: 5px;
-}
-
-.candidate-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-  gap: 25px; /* Spacing between cards */
-}
-
-.candidate-item {
-  background-color: #F9F9FA; /* Slightly off-white */
-  border: 1px solid #ECEFF1; /* Very subtle border */
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Lighter shadow */
-}
-
-.candidate-item:hover {
-  transform: translateY(-5px); /* More pronounced lift */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
-}
-
-.candidate-item a {
-  text-decoration: none;
-  color: #34495E;
-  display: block;
-}
-
-.candidate-item h3 {
-  color: #007bff; /* Standard blue for candidate names */
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.4em;
-  text-align: left; /* Align candidate names left */
-}
-.candidate-item p {
-    margin: 4px 0;
-    font-size: 0.95em;
     color: #555;
-    text-align: left; /* Align details left */
+    white-space: nowrap;
 }
 
-/* Candidate Detail Styles */
+.filters-search-bar input.search-input,
+.filters-search-bar select.status-filter {
+    padding: 10px;
+    border: 1px solid #D1D8DC; /* Light gray border */
+    border-radius: 8px;
+    font-size: 16px;
+    flex: 1; /* Allows inputs/selects to grow */
+    min-width: 150px; /* Ensures they don't get too small */
+    max-width: 250px; /* Prevents them from getting too wide */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filters-search-bar input.search-input:focus,
+.filters-search-bar select.status-filter:focus {
+    border-color: #4FC3F7;
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3);
+    outline: none;
+}
+
+.filters-search-bar button.refresh-button {
+    /* Overriding default button styles for a smaller, specific refresh button */
+    background: #6c757d; /* Gray color */
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+    margin-top: 0; /* Remove default button margin-top */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.filters-search-bar button.refresh-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Candidate Table Styles */
+.candidate-table, .job-description-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed; /* ESSENTIAL: Ensures columns adhere to specified widths */
+}
+
+.candidate-table th, .candidate-table td,
+.job-description-table th, .job-description-table td {
+    border: 1px solid #ECEFF1; /* Light border for cells */
+    padding: 8px 10px; /* Reduced padding for more space */
+    text-align: left;
+    vertical-align: top; /* Align content to the top of the cell */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    word-wrap: break-word; /* Allow long words to break */
+}
+
+.candidate-table td {
+    font-size: 0.88em; /* Slightly increased font size for table data */
+}
+
+
+.candidate-table th, .job-description-table th {
+    background-color: #F0F4F8; /* Light blue-gray header background */
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap; /* Prevent headers from wrapping */
+    font-size: 0.9em; /* Slightly smaller header font */
+}
+
+/* Define specific column widths for the candidate table (ADJUSTED) */
+/* Removed 'Actions' column from here, adjust remaining columns to sum to 100% */
+.candidate-table th:nth-child(1), .candidate-table td:nth-child(1) { width: 6%; } /* ID (Increased slightly) */
+.candidate-table th:nth-child(2), .candidate-table td:nth-child(2) { width: 18%; } /* Name (Increased) */
+.candidate-table th:nth-child(3), .candidate-table td:nth-child(3) { width: 25%; } /* Email (Increased significantly) */
+.candidate-table th:nth-child(4), .candidate-table td:nth-child(4) { width: 14%; } /* Phone (Increased) */
+.candidate-table th:nth-child(5), .candidate-table td:nth-child(5) { width: 17%; } /* Job Title (Increased) */
+.candidate-table th:nth-child(6), .candidate-table td:nth-child(6) { width: 10%; } /* Match Score (Increased slightly) */
+.candidate-table th:nth-child(7), .candidate-table td:nth-child(7) { width: 10%; } /* Status (Same as before) */
+/* Removed .candidate-table th:nth-child(8), .candidate-table td:nth-child(8) { width: 30%; } */
+
+
+/* Removed .candidate-actions styles as buttons are moved to detail view */
+/* .candidate-actions, .job-description-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+} */
+
+
+.candidate-table tr:nth-child(even), .job-description-table tr:nth-child(even) {
+    background-color: #F9F9FA; /* Slightly off-white for even rows */
+}
+
+.candidate-table tr:hover, .job-description-table tr:hover {
+    background-color: #EBF2FF; /* Light blue on hover */
+}
+
+
+/* Action Buttons (specific to list rows - these styles now primarily for detail view buttons) */
+.action-button {
+    /* These styles override the general 'button' styles for smaller, specific actions */
+    padding: 8px 12px; /* Increased padding slightly for better text fit and touch target */
+    border: none;
+    border-radius: 8px; /* Consistent with other rounded elements */
+    cursor: pointer;
+    font-size: 0.9em; /* Slightly increased font size for action buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* For Link acting as button */
+    color: white; /* Default text color for these buttons */
+    display: inline-flex; /* For better alignment if text is multi-line */
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Make buttons take full width of their flex container (the column) */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    margin-top: 0; /* Override general button margin */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.action-button:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* More pronounced shadow */
+}
+
+.view-button { /* Now used for "View Candidate" link, or possibly a "View Details" button in detail view */
+    background-color: #007bff; /* Standard Blue */
+}
+.view-button:hover {
+    background-color: #0056b3;
+}
+
+.download-button {
+    background-color: #17a2b8; /* Cyan */
+}
+.download-button:hover {
+    background-color: #138496;
+}
+
+.delete-button {
+    background-color: #E74C3C; /* Soft Red */
+}
+.delete-button:hover {
+    background-color: #C0392B;
+}
+
+/* NEW: Interview Button (specific style) */
+.interview-button {
+    background-color: #2ECC71; /* Soft Green */
+}
+.interview-button:hover {
+    background-color: #28B463;
+}
+
+/* Edit Button (used in job descriptions etc) */
+.edit-button {
+    background-color: #FFC107; /* Yellow */
+    color: #34495E; /* Dark text for contrast */
+}
+.edit-button:hover {
+    background-color: #E0A800;
+}
+
+
+.loading-message, .no-data-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+
+/* Candidate Detail Styles (ADJUSTED to include action buttons) */
 .candidate-detail-container {
-  padding: 30px;
+    padding: 30px;
+    /* Keeping max-width: 800px from common container styles */
 }
 
 .back-link {
-  display: inline-block;
-  margin-bottom: 25px;
-  color: #7C4DFF; /* Blue-purple for back link */
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #7C4DFF; /* Blue-purple for back link */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .back-link:hover {
-  text-decoration: underline;
-  transform: translateX(-3px); /* Slide left on hover */
+    text-decoration: underline;
+    transform: translateX(-3px); /* Slide left on hover */
 }
 
-.detail-header { /* NEW: Flex container for status and delete button */
+.detail-header { /* Flex container for status and action buttons */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ECEFF1;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 15px; /* Spacing between status control and action buttons */
 }
 
 .status-control {
@@ -395,28 +527,38 @@ button:disabled {
     box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3);
     outline: none;
 }
-.status-message {
-    font-size: 0.9em;
-    margin-left: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    /* Styles will be determined by success-message/error-message */
+/* .status-message styles are defined above under .success-message, .status-message */
+
+/* New: Container for action buttons in detail view */
+.candidate-detail-actions {
+    display: flex;
+    gap: 10px; /* Space between action buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    justify-content: flex-end; /* Align buttons to the right */
 }
 
+.candidate-detail-actions .action-button {
+    width: auto; /* Allow buttons to size based on content, not full width of parent */
+    padding: 10px 18px; /* Slightly larger padding for detail buttons */
+    font-size: 1em; /* Slightly larger font for detail buttons */
+    margin-top: 0; /* Remove default button margin */
+}
+
+
 .detail-section {
-  background-color: #F9F9FA;
-  border: 1px solid #ECEFF1;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Very light shadow */
+    background-color: #F9F9FA;
+    border: 1px solid #ECEFF1;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Very light shadow */
 }
 
 .detail-section h3 {
-  color: #4FC3F7; /* Teal for section headings */
-  margin-top: 0;
-  margin-bottom: 15px;
-  text-align: left;
+    color: #4FC3F7; /* Teal for section headings */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 .detail-section p, .detail-section ul {
@@ -457,71 +599,64 @@ button:disabled {
 }
 
 .send-email-button {
-  background-color: #FFD54F; /* Soft Yellow for Email button */
-  color: #34495E; /* Dark text for contrast */
-  padding: 12px 25px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #FFD54F; /* Soft Yellow for Email button */
+    color: #34495E; /* Dark text for contrast */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .send-email-button:hover {
-  background-color: #FFC107; /* Slightly darker yellow on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #FFC107; /* Slightly darker yellow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Email Sender Styles */
 .email-sender-container {
-  background-color: #F0F4F8; /* A light blue-gray background */
-  border: 1px solid #CFD8DC;
-  padding: 25px;
-  margin-top: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    background-color: #F0F4F8; /* A light blue-gray background */
+    border: 1px solid #CFD8DC;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .email-form .form-group label {
-  font-weight: normal; /* Labels in email form can be less bold */
+    font-weight: normal; /* Labels in email form can be less bold */
 }
 
 .email-warning {
-  font-size: 0.85em;
-  color: #7F8C8D; /* Secondary text color */
-  margin-top: 20px;
-  border-top: 1px dashed #B0BEC5; /* Dashed separator */
-  padding-top: 15px;
-  text-align: left;
-  line-height: 1.4;
+    font-size: 0.85em;
+    color: #7F8C8D; /* Secondary text color */
+    margin-top: 20px;
+    border-top: 1px dashed #B0BEC5; /* Dashed separator */
+    padding-top: 15px;
+    text-align: left;
+    line-height: 1.4;
 }
 
 /* Delete Buttons (specific styles for small buttons) */
-.delete-button, .delete-button-small {
-    background-color: #E74C3C; /* Soft red for delete */
-    padding: 10px 18px;
-    font-size: 15px;
-    border-radius: 8px;
-    margin-top: 0; /* Override default button margin */
-}
-.delete-button:hover, .delete-button-small:hover {
-    background-color: #C0392B;
-    transform: translateY(-1px); /* Less pronounced lift for small buttons */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+/* .delete-button already defined above in action-button section */
 .delete-button-small { /* For smaller delete buttons in lists */
+    /* This will be mostly covered by .action-button, but keeping for specificity if needed */
     padding: 8px 15px;
     font-size: 0.9em;
+    margin-top: 0; /* Ensure no extra margin */
 }
 
 /* Job Description List Styles */
 .job-description-list-container {
     padding: 30px;
+    /* Keeping max-width: 800px from common container styles */
 }
+/* No changes to the .job-description-list, .jd-item etc, as they are already card-based */
 .job-description-list {
     list-style: none;
     padding: 0;
@@ -564,87 +699,490 @@ button:disabled {
     text-align: right; /* Align delete button to the right */
 }
 
+/* NEW: Interview Modal Styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px; /* Slightly less rounded than your main cards */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.modal-content .job-description-select {
+    width: calc(100% - 24px); /* Account for padding and border, consistent with your form inputs */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #D1D8DC; /* Consistent border */
+    border-radius: 8px; /* Consistent roundedness */
+    font-size: 16px; /* Consistent font size */
+    box-sizing: border-box;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-actions .action-button {
+    /* Re-using your action-button styles for modal buttons for consistency */
+    padding: 10px 20px; /* Slightly more padding for modal buttons */
+    border-radius: 8px; /* Consistent roundedness */
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Consistent shadow */
+    margin-top: 0; /* Remove default button margin */
+}
+
+.modal-actions .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.modal-actions .action-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none; /* No lift when disabled */
+    box-shadow: none; /* No shadow when disabled */
+}
+
+.modal-actions .action-button:not(:disabled) {
+    background-color: #007bff; /* Standard blue for primary modal action */
+}
+
+.modal-actions .action-button:not(:disabled):hover {
+    background-color: #0056b3;
+}
+
+.modal-actions .cancel-button {
+    background-color: #6c757d; /* Gray for cancel */
+    color: white;
+    border: none;
+}
+
+.modal-actions .cancel-button:hover {
+    background-color: #5a6268;
+}
+
+
+/* NEW: Chatbot Interviewer specific styles */
+.chatbot-interviewer-container {
+    max-width: 900px; /* Slightly wider than 800px for the interview screen */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #F9F9FA; /* Consistent light background */
+    border-radius: 15px; /* Consistent roundedness */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Consistent shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.chatbot-interviewer-container h2 {
+    color: #34495E; /* Consistent heading color */
+    margin-bottom: 15px;
+}
+
+/* error-message already defined earlier in the CSS */
+
+.question-area {
+    background-color: #EBF2FF; /* Light blue background, similar to score-card */
+    padding: 20px; /* More padding */
+    border-radius: 12px; /* Consistent roundedness */
+    width: 100%;
+    text-align: center;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+    border: 1px solid #7C4DFF; /* Border from your primary gradient color */
+}
+
+.question-area h3 {
+    color: #7C4DFF; /* Blue-purple heading */
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.question-text {
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.6;
+}
+
+.webcam-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap */
+    width: 100%;
+}
+
+.webcam-section video {
+    border: 2px solid #7C4DFF; /* Border consistent with your branding */
+    border-radius: 12px; /* Rounded corners for webcam feed */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%; /* Ensure it's responsive */
+    height: auto;
+}
+.webcam-section video.recording {
+    border-color: #E74C3C; /* Red border when recording */
+    box-shadow: 0 0 0 5px rgba(231, 76, 60, 0.3); /* Red glow when recording */
+}
+
+
+.btn {
+    /* Base style for buttons within ChatbotInterviewer, overriding general button */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    width: fit-content;
+    margin-top: 10px; /* Ensure some spacing */
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+
+.btn-start {
+    background-color: #2ECC71; /* Soft Green */
+    color: white;
+}
+.btn-start:hover {
+    background-color: #28B463;
+}
+
+.btn-stop {
+    background-color: #E74C3C; /* Soft Red */
+    color: white;
+}
+.btn-stop:hover {
+    background-color: #C0392B;
+}
+
+.response-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.response-area textarea {
+    width: calc(100% - 24px); /* Account for padding and border */
+    padding: 12px;
+    border: 1px solid #D1D8DC; /* Light gray border */
+    border-radius: 8px; /* Consistent roundedness */
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+    min-height: 80px; /* Minimum height for text area */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.response-area textarea:focus {
+    border-color: #4FC3F7;
+    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.3);
+    outline: none;
+}
+
+.btn-submit {
+    background: linear-gradient(45deg, #4FC3F7, #7C4DFF); /* Your primary gradient */
+    color: white;
+    align-self: flex-end; /* Align button to the right */
+    margin-top: 5px; /* Adjust spacing */
+}
+/* Hover and disabled states already defined in .btn */
+
+
+.current-transcript, .transcript-section {
+    width: 100%;
+    background-color: #F9F9FA; /* Consistent light background */
+    border: 1px solid #ECEFF1;
+    border-radius: 12px; /* Consistent roundedness */
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+}
+
+.current-transcript h4, .transcript-section h4 {
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.current-transcript pre, .transcript-section pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    color: #333;
+    line-height: 1.5;
+}
+
+.interview-complete-card {
+    text-align: center;
+    background-color: #e6faed; /* Light green background */
+    border: 1px solid #2ECC71; /* Soft Green border */
+    padding: 30px;
+    border-radius: 15px; /* Consistent roundedness */
+    margin-top: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Consistent shadow */
+}
+
+.interview-complete-card h3 {
+    color: #2ECC71; /* Soft Green */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.interview-complete-card p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.interview-complete-card .btn {
+    background: linear-gradient(45deg, #4FC3F7, #7C4DFF); /* Your primary gradient */
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 10px; /* Consistent roundedness */
+    margin-top: 0; /* Remove extra margin */
+}
+
 
 /* Responsive adjustments */
+@media (max-width: 900px) { /* Adjusted breakpoint for larger table layout */
+    /* Column widths for tables when 'Actions' column is removed from list */
+    .candidate-table th:nth-child(1), .candidate-table td:nth-child(1) { width: 6%; } /* ID */
+    .candidate-table th:nth-child(2), .candidate-table td:nth-child(2) { width: 18%; } /* Name */
+    .candidate-table th:nth-child(3), .candidate-table td:nth-child(3) { width: 25%; } /* Email */
+    .candidate-table th:nth-child(4), .candidate-table td:nth-child(4) { width: 14%; } /* Phone */
+    .candidate-table th:nth-child(5), .candidate-table td:nth-child(5) { width: 17%; } /* Job Title */
+    .candidate-table th:nth-child(6), .candidate-table td:nth-child(6) { width: 10%; } /* Match Score */
+    .candidate-table th:nth-child(7), .candidate-table td:nth-child(7) { width: 10%; } /* Status */
+    /* Removed 'Actions' column from mobile view specific widths */
+
+    /* Adjust button placement for detail view on smaller screens */
+    .candidate-detail-actions {
+        justify-content: center; /* Center align buttons in detail view on smaller screens */
+        width: 100%; /* Ensure the container spans full width */
+    }
+    .candidate-detail-actions .action-button {
+        width: calc(50% - 5px); /* Two buttons per row on smaller screens, with gap */
+    }
+}
+
 @media (max-width: 768px) {
-  .App-header {
-    flex-direction: column;
-    padding: 15px 20px;
-  }
+    .App-header {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
 
-  .App-header nav {
-    margin-top: 20px;
-    gap: 15px;
-  }
+    .App-header nav {
+        margin-top: 20px;
+        gap: 15px;
+    }
 
-  .nav-link {
-    padding: 8px 15px;
-    font-size: 1em;
-  }
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
 
-  .upload-form,
-  .results-container,
-  .candidate-list-container,
-  .candidate-detail-container,
-  .email-sender-container,
-  .job-description-list-container {
-    padding: 20px;
-    margin-bottom: 20px;
-  }
+    .upload-form,
+    .results-container,
+    .candidate-list-container,
+    .candidate-detail-container,
+    .email-sender-container,
+    .job-description-list-container,
+    .chatbot-interviewer-container { /* Added chatbot container */
+        padding: 20px;
+        margin-bottom: 20px;
+        max-width: 100%; /* Allow full width on smaller screens */
+    }
 
-  button {
-    padding: 12px 20px;
-    font-size: 16px;
-  }
+    button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
 
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    font-size: 14px;
-    padding: 10px;
-  }
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    .modal-content .job-description-select { /* Also responsive for modal select */
+        font-size: 14px;
+        padding: 10px;
+    }
 
-  .candidate-list, .job-description-list {
-    grid-template-columns: 1fr; /* Stack cards on mobile */
-  }
+    /* Table responsivity on smaller screens: stack elements if necessary */
+    .candidate-table, .job-description-table {
+        display: block; /* Make table non-table-display for custom stacking */
+        width: 100%;
+        overflow-x: auto; /* Allow horizontal scrolling if table is too wide */
+    }
 
-  .candidate-item h3 {
-    font-size: 1.2em;
-  }
+    .candidate-table thead, .job-description-table thead {
+        display: none; /* Hide header on small screens */
+    }
 
-  .filter-sort-section {
-    grid-template-columns: 1fr; /* Stack filters on mobile */
-    gap: 15px;
-  }
-  .filter-sort-section h3 {
-      text-align: center;
-  }
-  .detail-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 15px;
-  }
-  .delete-button {
-      width: 100%; /* Full width delete button on mobile */
-  }
+    .candidate-table tr, .job-description-table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ECEFF1;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        padding: 10px;
+        background-color: #FFFFFF;
+        white-space: normal; /* Allow content to wrap within the 'card' */
+    }
+
+    .candidate-table td, .job-description-table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%; /* Make space for pseudo-element label */
+        position: relative;
+        border: none; /* Remove cell borders */
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 0.9em; /* Ensure data is still readable */
+        white-space: normal; /* Allow text to wrap within the cell on mobile */
+    }
+
+    .candidate-table td::before, .job-description-table td::before {
+        content: attr(data-label); /* Use data-label for content */
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px); /* Label takes half the width */
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: #7C4DFF; /* Blue-purple for labels */
+    }
+
+    /* Specific data-labels for candidate table (ADJUSTED - Removed 'Actions') */
+    .candidate-table td:nth-of-type(1)::before { content: "ID:"; }
+    .candidate-table td:nth-of-type(2)::before { content: "Name:"; }
+    .candidate-table td:nth-of-type(3)::before { content: "Email:"; }
+    .candidate-table td:nth-of-type(4)::before { content: "Phone:"; }
+    .candidate-table td:nth-of-type(5)::before { content: "Job Title:"; }
+    .candidate-table td:nth-of-type(6)::before { content: "Match Score:"; }
+    .candidate-table td:nth-of-type(7)::before { content: "Status:"; }
+    /* Removed .candidate-table td:nth-of-type(8)::before { content: "Actions:"; } */
+
+    /* Job Description List (if you convert it to a table, similar logic would apply) */
+    /* For now, assuming job-description-list remains a grid of cards */
+    .job-description-list {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+
+
+    .filters-search-bar {
+        flex-direction: column; /* Stack filters vertically */
+        align-items: stretch; /* Stretch items to fill width */
+        gap: 10px;
+    }
+    .filters-search-bar input.search-input,
+    .filters-search-bar select.status-filter,
+    .filters-search-bar button.refresh-button {
+        width: 100%; /* Full width for filter inputs/buttons */
+        max-width: none;
+    }
+
+    .detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    /* Removed specific delete button width for general action buttons */
+    /* .delete-button {
+        width: 100%;
+    } */
+    .send-email-button {
+        width: 100%;
+        margin-top: 15px;
+    }
+    .modal-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .modal-actions .action-button {
+        width: 100%;
+    }
+    .webcam-section button, .btn {
+        width: 100%; /* Full width buttons for webcam/chat */
+        max-width: 300px; /* Optional: limit max width for aesthetic */
+    }
+    .btn-submit {
+        align-self: center; /* Center submit button on mobile */
+    }
+
+    /* Candidate Detail Actions on small screens */
+    .candidate-detail-actions {
+        flex-direction: column; /* Stack buttons vertically in detail view on very small screens */
+        width: 100%;
+    }
+    .candidate-detail-actions .action-button {
+        width: 100%; /* Full width for stacked buttons */
+    }
 }
 
 @media (max-width: 480px) {
-  .App-header h1 {
-    font-size: 2rem;
-  }
+    .App-header h1 {
+        font-size: 2rem;
+    }
 
-  .nav-link {
-    flex-grow: 1; /* Make nav links take full width in a row if wrapped */
-    text-align: center;
-  }
+    .nav-link {
+        flex-grow: 1; /* Make nav links take full width in a row if wrapped */
+        text-align: center;
+    }
 
-  .upload-form,
-  .results-container,
-  .candidate-list-container,
-  .candidate-detail-container,
-  .email-sender-container,
-  .job-description-list-container {
-    border-radius: 10px; /* Slightly less rounded for very small screens */
-  }
+    .upload-form,
+    .results-container,
+    .candidate-list-container,
+    .candidate-detail-container,
+    .email-sender-container,
+    .job-description-list-container,
+    .chatbot-interviewer-container {
+        border-radius: 10px; /* Slightly less rounded for very small screens */
+    }
 }
